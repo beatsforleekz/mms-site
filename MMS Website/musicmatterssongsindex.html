@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Matters Songs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #E2D7D2;
+      --bg-soft: rgba(255, 255, 255, 0.14);
+      --text: #191614;
+      --text-soft: #5f544e;
+      --text-muted: #877972;
+      --border: rgba(76, 63, 57, 0.16);
+      --border-strong: rgba(76, 63, 57, 0.24);
+      --max: 980px;
+      --max-wide: 1120px;
+      --pad: clamp(22px, 4vw, 44px);
+      --section-space: clamp(72px, 10vw, 112px);
+      --font: "Manrope", "Inter", system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+    }
+
+    .inner-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--border);
+      background: rgba(226, 215, 210, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .inner-header-bar {
+      max-width: var(--max-wide);
+      margin: 0 auto;
+      padding: 18px var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .inner-logo {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .inner-logo img {
+      width: auto;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 3vw, 30px);
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      padding-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      height: 1px;
+      background: var(--text);
+      transition: right 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .nav-link:hover::after {
+      right: 0;
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .mobile-toggle.is-open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .mobile-toggle.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-toggle.is-open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 0 var(--pad) 22px;
+      background: var(--bg);
+    }
+
+    .mobile-menu.is-open {
+      display: block;
+    }
+
+    .mobile-menu .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .mobile-menu .nav-link {
+      width: 100%;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    main {
+      width: 100%;
+    }
+
+    section {
+      scroll-margin-top: 88px;
+    }
+
+    .page-container {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    #home {
+      min-height: calc(100vh - 69px);
+      display: grid;
+      place-items: center;
+      padding: 56px 0 42px;
+    }
+
+    .home-wrap {
+      width: 100%;
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 32px var(--pad);
+      text-align: center;
+    }
+
+    .home-logo {
+      display: inline-flex;
+      justify-content: center;
+      margin-bottom: 34px;
+    }
+
+    .home-logo img {
+      width: min(320px, 74vw);
+      height: auto;
+    }
+
+    .home-nav {
+      display: flex;
+      justify-content: center;
+      gap: clamp(18px, 4vw, 30px);
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .home-nav .nav-link {
+      color: var(--text);
+    }
+
+    .home-nav .nav-link::after {
+      background: var(--text);
+    }
+
+    .positioning-line {
+      max-width: 560px;
+      margin: 0 auto;
+      color: var(--text-soft);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .positioning-line strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .content-section {
+      padding: var(--section-space) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .section-head h1,
+    .section-head h2 {
+      font-size: clamp(34px, 5vw, 54px);
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      color: var(--text-soft);
+      font-size: 16px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
+      gap: clamp(28px, 5vw, 56px);
+      align-items: start;
+    }
+
+    .about-copy {
+      max-width: 620px;
+    }
+
+    .about-copy p {
+      margin-bottom: 22px;
+      color: var(--text-soft);
+      font-size: 16px;
+    }
+
+    .about-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-notes {
+      border-top: 1px solid var(--border);
+    }
+
+    .note-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .note-item h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .note-item p {
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .catalogue-layout {
+      display: grid;
+      gap: 34px;
+    }
+
+    .catalogue-section {
+      max-width: 760px;
+      padding: 0 0 34px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .catalogue-section:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .catalogue-section h3 {
+      margin-bottom: 12px;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .catalogue-section p {
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      padding: 13px 16px;
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      background: var(--bg-soft);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .playlist-frame {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+
+    .playlist-frame iframe {
+      display: block;
+      width: 100%;
+      min-height: 352px;
+      border: 0;
+    }
+
+    .contact-layout {
+      max-width: 760px;
+    }
+
+    .contact-links {
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .contact-label svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .contact-row a {
+      color: var(--text-soft);
+      transition: color 0.2s ease;
+      text-align: right;
+      word-break: break-word;
+      font-size: 15px;
+    }
+
+    .contact-row a:hover {
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px var(--pad) 34px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-wide);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-mini-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-mini-nav a {
+      color: var(--text-soft);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 860px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .about-copy {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: inline-block;
+      }
+
+      #home {
+        min-height: auto;
+        padding: 44px 0 26px;
+      }
+
+      .content-section {
+        padding: 68px 0;
+      }
+
+      .section-head {
+        margin-bottom: 32px;
+      }
+
+      .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-row a {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="inner-header" id="inner-header">
+      <div class="inner-header-bar">
+        <a href="#home" class="inner-logo" aria-label="Music Matters Songs home">
+          <img src="images/MMS-logo.png" alt="Music Matters Songs logo" />
+        </a>
+
+        <nav class="desktop-nav nav-links" aria-label="Primary">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#catalogue" class="nav-link">Catalogue</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#catalogue" class="nav-link">Catalogue</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" aria-label="Home">
+        <div class="home-wrap">
+          <a href="#home" class="home-logo" aria-label="Music Matters Songs home">
+            <img src="images/MMS-logo.png" alt="Music Matters Songs logo" />
+          </a>
+
+          <nav class="home-nav" aria-label="Home navigation">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#catalogue" class="nav-link">Catalogue</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <p class="positioning-line">
+            <strong>Music Matters Songs</strong>
+            A modern music publishing company built around writers, songs and long-term creative value.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section" id="about" aria-label="About Music Matters Songs">
+        <div class="page-container">
+          <div class="section-head">
+            <p class="eyebrow">About</p>
+            <h1>Publishing with a long view.</h1>
+            <p class="section-intro">
+              Music Matters Songs is a music publishing company focused on writer development, catalogue stewardship and meaningful creative partnerships built to last.
+            </p>
+          </div>
+
+          <div class="about-layout">
+            <div class="about-copy">
+              <p>We work closely with writers and rights holders to build durable value around songs. Our approach is editorial, hands-on and commercially informed, with attention given to both the creative life of the work and the long-term strength of the catalogue.</p>
+              <p>From early development through to administration, pitching and strategic exploitation, we support songs with care and precision. That means helping writers shape opportunities, protecting rights properly, and creating the conditions for repertoire to travel further across recording, sync, artist and media markets.</p>
+              <p>We believe strong publishing relationships are built over time. By pairing creative judgement with professional rights management, Music Matters Songs is designed to help writers grow, songs endure and catalogues retain value well beyond the moment of release.</p>
+            </div>
+
+            <div class="about-notes" aria-label="Publishing focus">
+              <div class="note-item">
+                <h3>Writer Development</h3>
+                <p>Focused support for writers at different stages of their careers, with an emphasis on craft, direction and opportunity.</p>
+              </div>
+              <div class="note-item">
+                <h3>Catalogue Value</h3>
+                <p>Thoughtful management of repertoire with an eye on longevity, discoverability and sustainable commercial performance.</p>
+              </div>
+              <div class="note-item">
+                <h3>Creative Partnerships</h3>
+                <p>Connected, professional collaboration across writers, artists, managers, supervisors and wider industry partners.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="catalogue" aria-label="Catalogue">
+        <div class="page-container">
+          <div class="section-head">
+            <p class="eyebrow">Catalogue</p>
+            <h2>Songs, repertoire and ongoing value.</h2>
+            <p class="section-intro">
+              A concise overview of selected activity and a direct window into the catalogue.
+            </p>
+          </div>
+
+          <div class="catalogue-layout">
+            <div class="catalogue-section">
+              <h3>Recent Highlights</h3>
+              <span class="coming-soon">Coming soon</span>
+            </div>
+
+            <div class="catalogue-section">
+              <h3>Our Catalogue</h3>
+              <p>The playlist below offers a straightforward view of the repertoire.</p>
+              <div class="playlist-frame">
+                <iframe
+                  src="https://open.spotify.com/embed/playlist/4sr0JTbV4Ai18ZPc5cSLir?utm_source=generator"
+                  title="Music Matters Songs catalogue playlist"
+                  loading="lazy"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="contact" aria-label="Contact">
+        <div class="page-container contact-layout">
+          <div class="section-head">
+            <p class="eyebrow">Contact</p>
+            <h2>Get in touch.</h2>
+            <p class="section-intro">
+              For publishing, catalogue and general business enquiries, contact us directly below.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <div class="contact-row">
+              <span class="contact-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.01L12 13l8-6.99V6H4Z"/></svg>
+                Contact Us
+              </span>
+              <a href="mailto:info@musicmattersbypittbull.com">info@musicmattersbypittbull.com</a>
+            </div>
+
+            <div class="contact-row">
+              <span class="contact-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+                Instagram
+              </span>
+              <a href="https://www.instagram.com/musicmatterssongs" target="_blank" rel="noopener noreferrer">instagram.com/musicmatterssongs</a>
+            </div>
+
+            <div class="contact-row">
+              <span class="contact-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.8l.42-3.26H13.5V8.66c0-.94.27-1.58 1.62-1.58H17V4.16c-.33-.04-1.47-.16-2.8-.16-2.76 0-4.65 1.68-4.65 4.77v1.97H6.5V14h3.05v8h3.95Z"/></svg>
+                Facebook
+              </span>
+              <a href="https://www.facebook.com/musicmatterssongs" target="_blank" rel="noopener noreferrer">facebook.com/musicmatterssongs</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 Music Matters Songs</p>
+        <nav class="footer-mini-nav" aria-label="Footer">
+          <a href="#about">About</a>
+          <a href="#catalogue">Catalogue</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const mobileToggle = document.getElementById("mobile-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("is-open");
+      mobileToggle.classList.toggle("is-open", isOpen);
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("is-open");
+        mobileToggle.classList.remove("is-open");
+        mobileToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
