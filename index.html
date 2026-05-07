@@ -25,13 +25,12 @@
       --max: 980px;
       --max-wide: 1120px;
       --pad: clamp(22px, 4vw, 44px);
-      --section-space: clamp(56px, 8vw, 88px);
       --font: "Manrope", "Inter", system-ui, sans-serif;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 74px;
+      scroll-padding-top: 96px;
     }
 
     body {
@@ -192,7 +191,7 @@
     }
 
     section {
-      scroll-margin-top: 74px;
+      scroll-margin-top: 96px;
     }
 
     .page-container {
@@ -203,10 +202,11 @@
     }
 
     #home {
-      min-height: calc(100vh - 69px);
+      min-height: calc(100vh - 92px);
       display: grid;
       place-items: center;
-      padding: 28px 0 20px;
+      padding-top: clamp(3rem, 7vh, 5rem);
+      padding-bottom: clamp(3rem, 7vh, 5rem);
     }
 
     .home-wrap {
@@ -229,7 +229,8 @@
     }
 
     .content-section {
-      padding: var(--section-space) 0;
+      padding-top: clamp(4rem, 8vh, 6rem);
+      padding-bottom: clamp(4rem, 8vh, 6rem);
       border-top: 1px solid var(--border);
     }
 
@@ -470,11 +471,13 @@
 
       #home {
         min-height: auto;
-        padding: 24px 0 14px;
+        padding-top: clamp(3rem, 7vh, 5rem);
+        padding-bottom: clamp(3rem, 7vh, 5rem);
       }
 
       .content-section {
-        padding: 58px 0;
+        padding-top: clamp(4rem, 8vh, 6rem);
+        padding-bottom: clamp(4rem, 8vh, 6rem);
       }
 
       .section-head {
