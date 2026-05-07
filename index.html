@@ -15,7 +15,7 @@
     }
 
     :root {
-      --bg: #E2D7D2;
+      --bg: #D8CCC6;
       --bg-soft: rgba(255, 255, 255, 0.14);
       --text: #191614;
       --text-soft: #5f544e;
@@ -70,10 +70,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      border-bottom: 1px solid var(--border);
-      background: rgba(226, 215, 210, 0.94);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(216, 204, 198, 0.96);
     }
 
     .inner-header-bar {
@@ -167,7 +164,6 @@
 
     .mobile-menu {
       display: none;
-      border-top: 1px solid var(--border);
       padding: 0 var(--pad) 22px;
       background: var(--bg);
     }
@@ -185,7 +181,6 @@
     .mobile-menu .nav-link {
       width: 100%;
       padding: 18px 0;
-      border-bottom: 1px solid var(--border);
     }
 
     main {
@@ -204,18 +199,18 @@
     }
 
     #home {
-      min-height: calc(100vh - var(--header-height));
+      min-height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 var(--gutter);
+      padding: 2.5rem var(--gutter) 1.5rem;
     }
 
     .home-wrap {
       width: 100%;
       max-width: 520px;
       margin: 0 auto;
-      padding: 18px 0;
+      padding: 0;
       text-align: center;
     }
 
@@ -232,20 +227,19 @@
 
     .content-section {
       min-height: auto;
-      padding-top: clamp(3.5rem, 6vh, 5rem);
-      padding-bottom: clamp(4rem, 7vh, 6rem);
-      border-top: 1px solid var(--border);
+      padding-top: clamp(3rem, 5vh, 4.5rem);
+      padding-bottom: clamp(3.5rem, 6vh, 5rem);
     }
 
     .section-head {
       max-width: 760px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     .eyebrow {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-muted);
       margin-bottom: 14px;
@@ -280,19 +274,21 @@
       font-size: 16px;
     }
 
+    .about-copy p:first-child {
+      margin-top: 0;
+    }
+
     .about-copy p:last-child {
       margin-bottom: 0;
     }
 
     .about-notes {
-      border-top: 1px solid var(--border);
       max-width: 360px;
       justify-self: end;
     }
 
     .note-item {
       padding: 20px 0;
-      border-bottom: 1px solid var(--border);
     }
 
     .note-item h3 {
@@ -310,18 +306,16 @@
 
     .catalogue-layout {
       display: grid;
-      gap: 34px;
+      gap: 28px;
     }
 
     .catalogue-section {
       max-width: 780px;
       padding: 0 0 34px;
-      border-bottom: 1px solid var(--border);
     }
 
     .catalogue-section:last-child {
       padding-bottom: 0;
-      border-bottom: 0;
     }
 
     .catalogue-section h3 {
@@ -336,31 +330,8 @@
       font-size: 15px;
     }
 
-    .writers-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0 28px;
-      margin-top: 16px;
-      border-top: 1px solid var(--border);
-    }
-
-    .writer-link {
-      display: block;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    .writer-link:hover {
-      color: var(--text-soft);
-    }
-
     .playlist-frame {
       margin-top: 16px;
-      border: 1px solid var(--border);
       background: var(--bg-soft);
       overflow: hidden;
     }
@@ -373,43 +344,21 @@
     }
 
     .contact-layout {
-      max-width: 760px;
-    }
-
-    .contact-links {
-      border-top: 1px solid var(--border);
+      max-width: var(--max);
     }
 
     .contact-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .contact-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .contact-label svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-      flex-shrink: 0;
+      justify-content: flex-start;
+      gap: 16px;
+      padding: 8px 0 0;
+      flex-wrap: wrap;
     }
 
     .contact-row a {
       color: var(--text-soft);
       transition: color 0.2s ease;
-      text-align: right;
-      word-break: break-word;
       font-size: 15px;
     }
 
@@ -417,8 +366,86 @@
       color: var(--text);
     }
 
+    .contact-link-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-link-inline svg,
+    .social-icon-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .contact-link-inline .contact-text {
+      word-break: break-word;
+    }
+
+    .social-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+
+    .social-icon-link:hover {
+      color: var(--text);
+    }
+
+    .contact-secondary {
+      margin-top: 34px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .contact-subhead {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .contact-social-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stats-section {
+      padding-top: 8px;
+      padding-bottom: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      align-items: start;
+    }
+
+    .stat-item {
+      padding: 0 18px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stat-value {
+      color: var(--text);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-align: center;
+      max-width: 100%;
+    }
+
     footer {
-      border-top: 1px solid var(--border);
       padding: 26px var(--pad) 34px;
     }
 
@@ -473,13 +500,13 @@
       }
 
       #home {
-        min-height: calc(100vh - var(--header-height));
-        padding: 0 var(--gutter);
+        min-height: auto;
+        padding: 2rem var(--gutter) 1.25rem;
       }
 
       .content-section {
-        padding-top: clamp(3.5rem, 6vh, 5rem);
-        padding-bottom: clamp(4rem, 7vh, 6rem);
+        padding-top: clamp(3rem, 5vh, 4.5rem);
+        padding-bottom: clamp(3.5rem, 6vh, 5rem);
       }
 
       .section-head {
@@ -487,12 +514,7 @@
       }
 
       .contact-row {
-        flex-direction: column;
         align-items: flex-start;
-      }
-
-      .contact-row a {
-        text-align: left;
       }
 
       .about-notes {
@@ -500,9 +522,18 @@
         justify-self: stretch;
       }
 
-      .writers-grid {
+      .stats-grid {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 14px;
+      }
+
+      .stat-item {
+        padding: 0;
+        justify-content: flex-start;
+      }
+
+      .stat-value {
+        text-align: left;
       }
     }
   </style>
@@ -517,7 +548,7 @@
 
         <nav class="desktop-nav nav-links" aria-label="Primary">
           <a href="#about" class="nav-link">About</a>
-          <a href="#writers" class="nav-link">Writers</a>
+          <a href="#catalogue" class="nav-link">Catalogue</a>
           <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
@@ -531,7 +562,7 @@
       <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
         <div class="nav-links">
           <a href="#about" class="nav-link">About</a>
-          <a href="#writers" class="nav-link">Writers</a>
+          <a href="#catalogue" class="nav-link">Catalogue</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
       </nav>
@@ -546,21 +577,20 @@
         </div>
       </section>
 
-      <section class="content-section" id="about" aria-label="About Music Matters Songs">
+      <section class="content-section" id="about" aria-label="About Music Matters Songs" style="scroll-margin-top: 128px;">
         <div class="page-container">
           <div class="section-head">
             <p class="eyebrow">About</p>
-            <h1>Publishing with a long view.</h1>
-            <p class="section-intro">
-              Music Matters Songs is a music publishing company focused on writer development, catalogue stewardship and meaningful creative partnerships built to last.
-            </p>
           </div>
 
           <div class="about-layout">
             <div class="about-copy">
-              <p>We work closely with writers and rights holders to build durable value around songs. Our approach is editorial, hands-on and commercially informed, with attention given to both the creative life of the work and the long-term strength of the catalogue.</p>
-              <p>From early development through to administration, pitching and strategic exploitation, we support songs with care and precision. That means helping writers shape opportunities, protecting rights properly, and creating the conditions for repertoire to travel further across recording, sync, artist and media markets.</p>
-              <p>We believe strong publishing relationships are built over time. By pairing creative judgement with professional rights management, Music Matters Songs is designed to help writers grow, songs endure and catalogues retain value well beyond the moment of release.</p>
+              <p>At Music Matters Songs, we are more than just a boutique music publishing company — we are dedicated to fostering the success of exceptional songwriters and songs through hands-on management and strategic opportunities.</p>
+              <p>With our joint venture alongside Sony Music Publishing, we offer both the global reach and personalized attention that ensures our clients thrive.</p>
+              <p>What sets us apart is our focus on administrative excellence. While it's easy to overlook the small but critical details, we pride ourselves on ensuring that all of our songwriters have their administrative and royalty affairs in order. This precision and attention to detail guarantee that our writers are paid what they deserve, with every opportunity maximized.</p>
+              <p>We're equally proud of our impressive track record in sync. We've secured high-profile placements with some of the world's leading brands, including but not limited to Samsung, Google, Nike, Superdrug and countless TV shows, showcasing our ability to match music with the right visual projects for maximum impact. Our team's expertise in both administration and sync gives our writers a competitive edge in today's fast-paced music industry.</p>
+              <p>At Music Matters Songs, we believe that great songs deserve the best possible platform, and we're here to ensure the songs reach their full potential.</p>
+              <p>"One song can change everything"</p>
             </div>
 
             <div class="about-notes" aria-label="Publishing focus">
@@ -581,28 +611,29 @@
         </div>
       </section>
 
-      <section class="content-section" id="writers" aria-label="Writers">
+      <section class="stats-section" aria-label="Company statistics">
+        <div class="page-container">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value">30B+ Streams</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">Gold &amp; Platinum Certifications</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">Global Catalogue</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="catalogue" aria-label="Catalogue">
         <div class="page-container">
           <div class="section-head">
-            <p class="eyebrow">Writers</p>
-            <h2>Songs, repertoire and ongoing value.</h2>
-            <p class="section-intro">
-              A concise overview of selected activity and a direct window into the catalogue.
-            </p>
+            <p class="eyebrow">Catalogue</p>
           </div>
 
           <div class="catalogue-layout">
-            <div class="catalogue-section">
-              <h3>Our Writers</h3>
-              <p>An evolving selection of writers connected to Music Matters Songs, including but not limited to:</p>
-              <div class="writers-grid">
-                <a class="writer-link" href="https://www.instagram.com/therealalika" target="_blank" rel="noopener noreferrer">Alika McGillivary</a>
-                <a class="writer-link" href="https://www.instagram.com/nabihamusic" target="_blank" rel="noopener noreferrer">Nabiha Bensouda</a>
-                <a class="writer-link" href="https://www.instagram.com/robinmmusic" target="_blank" rel="noopener noreferrer">Robin M</a>
-                <a class="writer-link" href="https://www.instagram.com/soeren_christensen" target="_blank" rel="noopener noreferrer">Soeren Christensen</a>
-              </div>
-            </div>
-
             <div class="catalogue-section">
               <h3>Our Catalogue</h3>
               <p>Dive into our catalogue below:</p>
@@ -623,35 +654,23 @@
         <div class="page-container contact-layout">
           <div class="section-head">
             <p class="eyebrow">Contact</p>
-            <h2>Get in touch.</h2>
-            <p class="section-intro">
-              For publishing, catalogue and general business enquiries, contact us directly below.
-            </p>
           </div>
 
-          <div class="contact-links">
-            <div class="contact-row">
-              <span class="contact-label">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.01L12 13l8-6.99V6H4Z"/></svg>
-                Contact Us
-              </span>
-              <a href="mailto:info@musicmattersbypittbull.com">info@musicmattersbypittbull.com</a>
-            </div>
-
-            <div class="contact-row">
-              <span class="contact-label">
+          <div class="contact-row">
+            <a class="contact-link-inline" href="mailto:info@musicmattersbypittbull.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.01L12 13l8-6.99V6H4Z"/></svg>
+              <span class="contact-text">info@musicmattersbypittbull.com</span>
+            </a>
+          </div>
+          <div class="contact-secondary">
+            <div class="contact-subhead">Follow Us</div>
+            <div class="contact-social-row">
+              <a class="social-icon-link" href="https://www.instagram.com/musicmatterssongs" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
-                Instagram
-              </span>
-              <a href="https://www.instagram.com/musicmatterssongs" target="_blank" rel="noopener noreferrer">instagram.com/musicmatterssongs</a>
-            </div>
-
-            <div class="contact-row">
-              <span class="contact-label">
+              </a>
+              <a class="social-icon-link" href="https://www.facebook.com/musicmatterssongs" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.8l.42-3.26H13.5V8.66c0-.94.27-1.58 1.62-1.58H17V4.16c-.33-.04-1.47-.16-2.8-.16-2.76 0-4.65 1.68-4.65 4.77v1.97H6.5V14h3.05v8h3.95Z"/></svg>
-                Facebook
-              </span>
-              <a href="https://www.facebook.com/musicmatterssongs" target="_blank" rel="noopener noreferrer">facebook.com/musicmatterssongs</a>
+              </a>
             </div>
           </div>
         </div>
@@ -663,7 +682,7 @@
         <p class="footer-copy">&copy; 2026 Music Matters Songs</p>
         <nav class="footer-mini-nav" aria-label="Footer">
           <a href="#about">About</a>
-          <a href="#writers">Writers</a>
+          <a href="#catalogue">Catalogue</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
