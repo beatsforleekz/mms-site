@@ -332,16 +332,26 @@
       font-size: 15px;
     }
 
-    .coming-soon {
-      display: inline-block;
-      padding: 13px 16px;
-      border: 1px solid var(--border-strong);
+    .writers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 28px;
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .writer-link {
+      display: block;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
       color: var(--text);
-      background: var(--bg-soft);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .writer-link:hover {
+      color: var(--text-soft);
     }
 
     .playlist-frame {
@@ -484,6 +494,11 @@
         max-width: 100%;
         justify-self: stretch;
       }
+
+      .writers-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
     }
   </style>
 </head>
@@ -575,29 +590,12 @@
             <div class="catalogue-section">
               <h3>Our Writers</h3>
               <p>An evolving selection of writers connected to Music Matters Songs, including but not limited to:</p>
-              <div class="contact-links" style="margin-top: 16px;">
-                <div class="contact-row">
-                  <span class="contact-label">Alika McGillivary</span>
-                  <a href="https://www.instagram.com/therealalika" target="_blank" rel="noopener noreferrer">@therealalika</a>
-                </div>
-                <div class="contact-row">
-                  <span class="contact-label">Nabiha Bensouda</span>
-                  <a href="https://www.instagram.com/nabihamusic" target="_blank" rel="noopener noreferrer">@nabihamusic</a>
-                </div>
-                <div class="contact-row">
-                  <span class="contact-label">Robin M</span>
-                  <a href="https://www.instagram.com/robinmmusic" target="_blank" rel="noopener noreferrer">@robinmmusic</a>
-                </div>
-                <div class="contact-row">
-                  <span class="contact-label">Soeren Christensen</span>
-                  <a href="https://www.instagram.com/soeren_christensen" target="_blank" rel="noopener noreferrer">@soeren_christensen</a>
-                </div>
+              <div class="writers-grid">
+                <a class="writer-link" href="https://www.instagram.com/therealalika" target="_blank" rel="noopener noreferrer">Alika McGillivary</a>
+                <a class="writer-link" href="https://www.instagram.com/nabihamusic" target="_blank" rel="noopener noreferrer">Nabiha Bensouda</a>
+                <a class="writer-link" href="https://www.instagram.com/robinmmusic" target="_blank" rel="noopener noreferrer">Robin M</a>
+                <a class="writer-link" href="https://www.instagram.com/soeren_christensen" target="_blank" rel="noopener noreferrer">Soeren Christensen</a>
               </div>
-            </div>
-
-            <div class="catalogue-section">
-              <h3>Recent Highlights</h3>
-              <span class="coming-soon">Coming soon</span>
             </div>
 
             <div class="catalogue-section">
