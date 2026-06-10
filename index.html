@@ -140,6 +140,7 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.5rem;
       margin-top: clamp(1.5rem, 3vw, 2rem);
+      width: 100%;
     }
 
     .stat {
@@ -147,6 +148,21 @@
       font-weight: 600;
       color: var(--text);
       text-align: center;
+    }
+
+    .stat:first-child {
+      text-align: left;
+      justify-self: start;
+    }
+
+    .stat:last-child {
+      text-align: right;
+      justify-self: end;
+    }
+
+    .stats-shell {
+      width: 100%;
+      max-width: 100%;
     }
 
     .site-footer {
@@ -189,6 +205,7 @@
 
       .stat {
         text-align: left;
+        justify-self: start;
       }
     }
   </style>
@@ -217,10 +234,12 @@
         <p>At Music Matters Songs, we believe that great songs deserve the best possible platform, and we are here to ensure they reach their full potential.</p>
         <p class="quote-line">"One song can change everything"</p>
       </div>
-      <div class="stats-row" aria-label="Company statistics">
-        <div class="stat">30B+ Streams</div>
-        <div class="stat">Gold &amp; Platinum Certifications</div>
-        <div class="stat">Global Catalogue</div>
+      <div class="stats-shell">
+        <div class="stats-row" aria-label="Company statistics">
+          <div class="stat">30B+ Streams</div>
+          <div class="stat">Gold &amp; Platinum Certifications</div>
+          <div class="stat">Global Catalogue</div>
+        </div>
       </div>
     </section>
   </main>
