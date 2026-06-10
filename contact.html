@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Matters Songs</title>
-  <meta name="description" content="Music Matters Songs" />
+  <title>Music Matters Songs | Contact</title>
+  <meta name="description" content="Contact Music Matters Songs" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -17,11 +17,10 @@
       --accent: #c3ada2;
       --line: #ece6e1;
       --max: 1200px;
-      --content: 840px;
+      --content: 720px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body {
       background: var(--bg);
       color: var(--text);
@@ -99,7 +98,8 @@
     .page-shell {
       width: min(100% - 2.5rem, var(--content));
       margin: 0 auto;
-      padding: clamp(1.1rem, 2vw, 1.5rem) 0 clamp(2.5rem, 6vw, 4.75rem);
+      padding: clamp(1.15rem, 2.2vw, 1.5rem) 0 clamp(2.5rem, 6vw, 4.75rem);
+      text-align: center;
     }
 
     .page-label {
@@ -108,40 +108,47 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--soft);
-      margin-bottom: clamp(1.1rem, 2vw, 1.5rem);
-      text-align: center;
+      margin-bottom: clamp(1.15rem, 2.2vw, 1.4rem);
     }
 
-    .page-copy {
+    .contact-panel {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: clamp(1.6rem, 4vw, 2.5rem) 0;
+      padding: clamp(2rem, 5vw, 3rem) 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.3rem;
     }
 
-    .page-copy p {
+    .contact-email {
       color: var(--muted);
-      line-height: 1.84;
       font-size: 1rem;
-      margin-top: 0.9rem;
-      text-align: justify;
+      transition: color 0.2s ease;
     }
 
-    .page-copy p:first-child {
-      margin-top: 0;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-      margin-top: clamp(1.5rem, 3vw, 2rem);
-    }
-
-    .stat {
-      font-size: 0.95rem;
-      font-weight: 600;
+    .contact-email:hover {
       color: var(--text);
-      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--soft);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
     }
 
     .site-footer {
@@ -163,27 +170,8 @@
         min-height: 70px;
       }
 
-      .site-nav {
-        gap: 0.85rem;
-      }
-
       .site-nav a {
         font-size: 0.66rem;
-      }
-
-      .page-copy p {
-        font-size: 0.97rem;
-        text-align: left;
-        line-height: 1.78;
-      }
-
-      .stats-row {
-        grid-template-columns: 1fr;
-        gap: 0.85rem;
-      }
-
-      .stat {
-        text-align: left;
       }
     }
   </style>
@@ -195,27 +183,21 @@
         <img src="images/MMS-Logo.png" alt="Music Matters Songs" />
       </a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a class="active" href="index.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">About</a>
+        <a class="active" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="page-shell">
-      <p class="page-label">Music Matters Songs</p>
-      <div class="page-copy">
-        <p>At Music Matters Songs, we are more than just a boutique music publishing company. We are dedicated to fostering the success of exceptional songwriters and songs through hands-on management and strategic opportunities.</p>
-        <p>With our joint venture alongside Sony Music Publishing, we offer both the global reach and personalised attention that ensures our clients thrive.</p>
-        <p>What sets us apart is our focus on administrative excellence. While it is easy to overlook the small but critical details, we pride ourselves on ensuring that all of our songwriters have their administrative and royalty affairs in order. This precision and attention to detail help ensure our writers are paid what they deserve, with every opportunity maximised.</p>
-        <p>We are equally proud of our track record in sync. We have secured high-profile placements with leading global brands including Samsung, Google, Nike and Superdrug, as well as numerous television projects, matching music with the right visual opportunities for maximum impact.</p>
-        <p>At Music Matters Songs, we believe that great songs deserve the best possible platform, and we are here to ensure they reach their full potential.</p>
-        <p>"One song can change everything"</p>
-      </div>
-      <div class="stats-row" aria-label="Company statistics">
-        <div class="stat">30B+ Streams</div>
-        <div class="stat">Gold &amp; Platinum Certifications</div>
-        <div class="stat">Global Catalogue</div>
+      <p class="page-label">Contact</p>
+      <div class="contact-panel">
+        <a class="contact-email" href="mailto:info@musicmatterssongs.com">info@musicmatterssongs.com</a>
+        <div class="social-links">
+          <a href="https://www.instagram.com/musicmatterssongs" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/musicmatterssongs" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
       </div>
     </section>
   </main>
